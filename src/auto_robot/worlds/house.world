@@ -254,6 +254,56 @@
         </visual>
       </link>
       
+      <!-- Door in bedroom wall -->
+      <link name="door_bedroom1">
+        <pose>-4 1 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1 0.2 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1 0.2 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Blue</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Door in bedroom wall -->
+      <link name="door_bedroom2">
+        <pose>-4 -1 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1 0.2 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1 0.2 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Blue</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      
       <!-- Furniture - Table in living room -->
       <link name="table">
         <pose>3 0 0 0 0 0</pose>
@@ -324,6 +374,208 @@
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
               <name>Gazebo/Green</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Coffee table in living room -->
+      <link name="coffee_table">
+        <pose>2 -3.5 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1 0.6 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1 0.6 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Brown</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- TV stand in living room -->
+      <link name="tv_stand">
+        <pose>4 -3 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.5 0.5 0.6</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.5 0.5 0.6</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Black</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Bed in bedroom 1 -->
+      <link name="bed1">
+        <pose>-3 3 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.5 1 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.5 1 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Blue</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Nightstand in bedroom 1 -->
+      <link name="nightstand1">
+        <pose>-4 3.5 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.6</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.6</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Brown</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Bed in bedroom 2 -->
+      <link name="bed2">
+        <pose>-3 -3 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.5 1 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.5 1 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Orange</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Nightstand in bedroom 2 -->
+      <link name="nightstand2">
+        <pose>-4 -3.5 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.6</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.6</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Brown</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Plant in living room corner -->
+      <link name="plant">
+        <pose>4.5 -4.5 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Green</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Rug in living room -->
+      <link name="rug">
+        <pose>2 -3 0.01 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>3 4 0.01</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3 4 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Purple</name>
             </script>
           </material>
         </visual>
