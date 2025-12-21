@@ -4,7 +4,7 @@
 
 ### ☑ 1. PDF Report
 - [x] PROJECT_REPORT.md created
-- [x] PROJECT_REPORT.pdf to be generated
+- [x] PROJECT_REPORT.pdf generated
 - Content includes:
   - Project overview and objectives
   - System architecture and design
@@ -14,7 +14,7 @@
 
 ### ☑ 2. Presentation
 - [x] PRESENTATION.md created
-- [x] PRESENTATION.pdf to be generated
+- [x] PRESENTATION.pdf generated (with fallback HTML version)
 - Content includes:
   - Title slide
   - System architecture
@@ -89,13 +89,13 @@
 
 ## Final Steps
 
-1. [ ] Run `generate_pdfs.sh` to create PDF documents
-2. [ ] Test Docker build process: `docker build -t homecleanerbot .`
-3. [ ] Verify all files are included in repository
+1. [x] Run `generate_pdfs.sh` to create PDF documents
+2. [~] Test Docker build process: `docker build -t homecleanerbot .` (in progress, takes ~10-15 minutes)
+3. [x] Verify all files are included in repository
 4. [ ] Record and upload demonstration video
 5. [ ] Final repository commit and push
 6. [ ] Submit all deliverables
 
 ---
 **Submission Ready:** ❌
-**Status:** Awaiting PDF generation and video recording
+**Status:** Docker build in progress, awaiting video recording
