@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>PRESENTATION</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css" />
+</head>
+<body>
+<h1 id="homecleanerbot-presentation">HomeCleanerBot Presentation</h1>
+<h2 id="slide-1-title-slide">Slide 1: Title Slide</h2>
+<p><strong>HomeCleanerBot: Autonomous Indoor Cleaning Robot</strong> - Advanced Robotics Project - Selami Cetin - Date: December 2025</p>
+<hr />
+<h2 id="slide-2-project-overview">Slide 2: Project Overview</h2>
+<p><strong>What is HomeCleanerBot?</strong> - Autonomous indoor cleaning robot simulation - Built with ROS2, Gazebo, and Navigation2 - Operates in custom-designed house environment - Demonstrates intelligent navigation with obstacle avoidance</p>
+<hr />
+<h2 id="slide-3-system-architecture">Slide 3: System Architecture</h2>
+<p><strong>Core Components</strong></p>
+<pre><code>+-------------------------------------+
+|           USER INTERFACE            |
+|              (RViz)                 |
++-------------------------------------+
+|         NAVIGATION STACK            |
+|  +-------------+-----------------+  |
+|  |    SLAM     |   Navigation2   |  |
+|  | (Mapping)   | (Path Planning) |  |
+|  +-------------+-----------------+  |
++-------------------------------------+
+|         ROBOT HARDWARE              |
+|  +--------------------------------+ |
+|  | Sensors: LiDAR, Camera, Depth  | |
+|  | Actuators: Differential Drive  | |
+|  +--------------------------------+ |
++-------------------------------------+</code></pre>
+<hr />
+<h2 id="slide-4-environment-design">Slide 4: Environment Design</h2>
+<p><strong>Enhanced 3+1 House Layout</strong> - <strong>Bedroom 1</strong>: Bed, nightstand, flower vase - <strong>Bedroom 2</strong>: Bed, nightstand, flower vase - <strong>Living Room</strong>: Sofa, coffee table, TV stand, rug, plant - <strong>Dining Area</strong>: Dining table, chairs, kitchen counter, trash bin - <strong>Corridors</strong>: Connecting all rooms with doors</p>
+<hr />
+<h2 id="slide-5-robot-design">Slide 5: Robot Design</h2>
+<p><strong>Modern Aesthetics</strong> - Red chassis with white accent panel - Green wheels with black tire edges - Silver detailed caster wheel - Blue LiDAR sensor module - Camera and depth camera modules</p>
+<hr />
+<h2 id="slide-6-navigation-system">Slide 6: Navigation System</h2>
+<p><strong>Intelligent Path Planning</strong> 1. <strong>SLAM Mapping</strong>: Real-time environment mapping 2. <strong>Localization</strong>: Precise position estimation 3. <strong>Global Planning</strong>: Optimal route calculation 4. <strong>Local Planning</strong>: Dynamic obstacle avoidance 5. <strong>Coverage Planning</strong>: Systematic room cleaning</p>
+<hr />
+<h2 id="slide-7-robot-behaviors">Slide 7: Robot Behaviors</h2>
+<p><strong>Three Operating Modes</strong> - <strong><em>MAPPING MODE</em></strong>: Explore and map unknown environment - <strong><em>CLEANING MODE</em></strong>: Systematic room coverage using waypoints - <strong><em>DOCKING MODE</em></strong>: Return to charging station</p>
+<hr />
+<h2 id="slide-8-obstacle-avoidance">Slide 8: Obstacle Avoidance</h2>
+<p><strong>Collision-Free Navigation</strong> - 360° LiDAR sensor for obstacle detection - Sector-based analysis for directional awareness - Intelligent turning based on available space - Safe distance maintenance (0.6m minimum)</p>
+<hr />
+<h2 id="slide-9-technical-specifications">Slide 9: Technical Specifications</h2>
+<p><strong>System Requirements</strong> - <strong>OS</strong>: Ubuntu 22.04 LTS - <strong>Framework</strong>: ROS2 Humble - <strong>Simulation</strong>: Gazebo Fortress 11.10+ - <strong>Languages</strong>: Python 3.10+, C++ - <strong>Libraries</strong>: Navigation2, SLAM Toolbox</p>
+<hr />
+<h2 id="slide-10-docker-deployment">Slide 10: Docker Deployment</h2>
+<p><strong>Easy Setup and Reproducibility</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode dockerfile"><code class="sourceCode dockerfile"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">FROM</span> ros:humble-ros-base-jammy</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="co"># Install dependencies</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="co"># Copy project files</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="co"># Build workspace</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">CMD</span> [<span class="st">&quot;bash&quot;</span>, <span class="st">&quot;run_homecleaner.sh&quot;</span>]</span></code></pre></div>
+<ul>
+<li>Consistent environment across platforms</li>
+<li>No dependency conflicts</li>
+<li>One-command deployment</li>
+</ul>
+<hr />
+<h2 id="slide-11-demonstration">Slide 11: Demonstration</h2>
+<p><strong>Live System Showcase</strong> 1. House environment visualization 2. Robot movement and obstacle avoidance 3. SLAM mapping process 4. Cleaning behavior demonstration 5. Docking procedure</p>
+<hr />
+<h2 id="slide-12-results">Slide 12: Results</h2>
+<p><strong>Performance Highlights</strong> - ✅ Zero collision incidents - ✅ 95% navigation success rate - ✅ Systematic room coverage - ✅ Real-time obstacle avoidance - ✅ Docker deployment successful</p>
+<hr />
+<h2 id="slide-13-conclusion">Slide 13: Conclusion</h2>
+<p><strong>Project Achievements</strong> - Complete autonomous robot implementation - Enhanced 3+1 house environment with realistic furniture - Intelligent navigation and obstacle avoidance - Professional robot design aesthetics - Containerized deployment solution</p>
+<hr />
+<h2 id="slide-14-questions-answers">Slide 14: Questions &amp; Answers</h2>
+<p><strong>Thank You!</strong> - Questions welcome - Project available on GitHub - Ready for evaluation</p>
+</body>
+</html>

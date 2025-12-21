@@ -56,7 +56,7 @@ bt_navigator:
     enable_groot_monitoring: True
     groot_zmq_publisher_port: 1666
     groot_zmq_server_port: 1667
-    default_bt_xml_filename: "navigate_w_replanning_and_recovery.xml"
+    default_bt_xml_filename: "navigate_to_pose_w_replanning_and_recovery.xml"
     plugin_lib_names:
     - nav2_compute_path_to_pose_action_bt_node
     - nav2_follow_path_action_bt_node
@@ -255,7 +255,7 @@ planner_server:
     planner_plugins: ["GridBased"]
     GridBased:
       plugin: "nav2_navfn_planner/NavfnPlanner"
-      tolerance: 0.5
+      tolerance: 0.2
       use_astar: false
       allow_unknown: true
 
@@ -287,3 +287,13 @@ recoveries_server:
 robot_state_publisher:
   ros__parameters:
     use_sim_time: True
+
+waypoint_follower:
+  ros__parameters:
+    loop_rate: 20
+    stop_on_failure: false
+    waypoint_task_executor_plugin: "wait_at_waypoint"   
+    wait_at_waypoint:
+      plugin: "nav2_waypoint_follower::WaitAtWaypoint"
+      enabled: True
+      waypoint_pause_duration: 100

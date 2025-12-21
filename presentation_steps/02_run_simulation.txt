@@ -1,0 +1,21 @@
+# STEP 2: RUN SIMULATION
+
+## Terminal 1 - Start Gazebo Simulation
+```bash
+cd /home/selamicetin/Masaüstü/robot
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+ros2 launch auto_robot launch_sim.launch.py
+```
+
+Expected output:
+- Gazebo window opens
+- House environment (2+1 layout) is displayed
+- Robot appears in the environment
+- No error messages in terminal
+
+## What to Look For:
+- 2+1 house layout with two bedrooms and living room
+- Robot positioned in the environment
+- Walls and furniture clearly visible
+- Smooth Gazebo operation

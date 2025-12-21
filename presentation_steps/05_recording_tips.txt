@@ -1,0 +1,33 @@
+# STEP 5: RECORDING TIPS
+
+## Screen Recording Setup
+1. Use screen recording software (Kazam, OBS, or built-in recorder)
+2. Record at 1080p resolution for clarity
+3. Capture all three windows:
+   - Gazebo simulation
+   - RViz visualization
+   - Terminal output
+
+## Recording Sequence
+1. Start with Gazebo window showing the house layout
+2. Show RViz window with robot model and sensors
+3. Start navigation and record robot movement
+4. Highlight key moments:
+   - Robot detecting obstacles
+   - Robot turning decisions
+   - Smooth path following
+5. Record terminal output showing log messages
+
+## What to Narrate During Recording
+1. "This is the HomeCleanerBot in a 2+1 house layout simulation"
+2. "The robot uses LiDAR sensors for obstacle detection"
+3. "When an obstacle is detected, the robot intelligently chooses the best direction to turn"
+4. "The navigation algorithm maintains a safe distance from all obstacles"
+5. "RViz provides real-time visualization of the robot's state and sensor data"
+
+## Key Points to Highlight
+- 2+1 house layout with realistic room arrangement
+- Intelligent obstacle avoidance without collisions
+- Real-time sensor data visualization
+- Smooth robot movement and turning
+- Integration between Gazebo, RViz, and navigation algorithms

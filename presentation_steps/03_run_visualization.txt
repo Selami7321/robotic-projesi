@@ -1,0 +1,20 @@
+# STEP 3: RUN VISUALIZATION
+
+## Terminal 2 - Start RViz Visualization
+```bash
+source /opt/ros/humble/setup.bash
+rviz2 -d /home/selamicetin/Masaüstü/robot/src/auto_robot/config/main.rviz
+```
+
+Expected output:
+- RViz window opens
+- Robot model is displayed in 3D
+- Laser scan points are visible around the robot
+- Coordinate frames are shown
+- Camera feed is displayed
+
+## What to Explain:
+- RViz provides real-time visualization of robot state
+- Laser scan shows obstacle detection range
+- Robot model displays all components (chassis, wheels, sensors)
+- TF frames show coordinate system relationships

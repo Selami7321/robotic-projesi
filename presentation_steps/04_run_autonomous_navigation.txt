@@ -1,0 +1,32 @@
+# STEP 4: RUN AUTONOMOUS NAVIGATION
+
+## Terminal 3 - Start Smart Navigation
+```bash
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+python3 /home/selamicetin/Masaüstü/robot/src/auto_robot/scripts/simple_auto_nav.py
+```
+
+Expected output:
+- Robot begins moving forward in Gazebo
+- Terminal shows navigation status messages
+- Robot intelligently avoids obstacles without collision
+- Robot turns when obstacles are detected
+
+## What to Observe:
+1. Robot moves smoothly forward initially
+2. When approaching a wall:
+   - Robot detects obstacle via LiDAR
+   - Robot stops forward motion
+   - Robot turns in the direction with more space
+   - After turning, robot continues forward
+3. No collisions with walls or furniture
+4. Intelligent path planning around obstacles
+
+## Navigation Algorithm:
+- Uses LiDAR data to detect obstacles in sectors (front, left, right)
+- Maintains safe distance (0.6m) from obstacles
+- State machine approach:
+  * FORWARD: Move straight when path is clear
+  * TURN_LEFT/TURN_RIGHT: Turn when obstacle detected, choosing direction with more space
+- Turns for fixed duration (1.5 seconds) then resumes forward motion

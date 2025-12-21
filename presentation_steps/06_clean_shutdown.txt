@@ -1,0 +1,32 @@
+# STEP 6: CLEAN SHUTDOWN
+
+## Stopping the System
+To properly shut down the system:
+
+1. In Terminal 3 (navigation):
+   - Press Ctrl+C to stop the navigation script
+
+2. In Terminal 2 (RViz):
+   - Close the RViz window
+   - Or press Ctrl+C in the terminal
+
+3. In Terminal 1 (Gazebo):
+   - Press Ctrl+C to stop the simulation
+   - Wait for processes to terminate gracefully
+
+## Alternative Quick Shutdown
+If needed, you can kill all processes quickly:
+```bash
+pkill -f "launch_sim.launch.py"
+pkill rviz2
+pkill python3
+pkill gazebo
+```
+
+## Verification
+After shutdown, check that no ROS processes are running:
+```bash
+ps aux | grep -E "(ros|gazebo|nav2|slam)" | grep -v grep
+```
+
+This should return no results if all processes were properly terminated.

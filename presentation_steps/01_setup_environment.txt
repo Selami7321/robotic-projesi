@@ -1,0 +1,17 @@
+# STEP 1: SETUP ENVIRONMENT
+
+## Prerequisites Check
+Make sure all dependencies are installed:
+```bash
+sudo apt update
+sudo apt install ros-humble-desktop ros-humble-slam-toolbox ros-humble-navigation2 ros-humble-nav2-bringup ros-humble-gazebo-ros-pkgs python3-colcon-common-extensions
+```
+
+## Build the Project
+```bash
+cd /home/selamicetin/Masaüstü/robot
+source /opt/ros/humble/setup.bash
+colcon build --packages-select auto_robot
+```
+
+This step ensures all packages are compiled and ready for execution.

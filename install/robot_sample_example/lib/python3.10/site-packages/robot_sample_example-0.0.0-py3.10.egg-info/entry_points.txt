@@ -1,3 +1,0 @@
-[console_scripts]
-create_parameter = robot_sample_example.create_parameter:main
-
