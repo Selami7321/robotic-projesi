@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/selamicetin/Masaüstü/robot/src/auto_robot
+CMAKE_SOURCE_DIR = /home/selamicetin/Masaüstü/robot3/src/auto_robot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/selamicetin/Masaüstü/robot/build/auto_robot
+CMAKE_BINARY_DIR = /home/selamicetin/Masaüstü/robot3/build/auto_robot
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/selamicetin/Masaüstü/robot/build/auto_robot/CMakeFiles /home/selamicetin/Masaüstü/robot/build/auto_robot//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/selamicetin/Masaüstü/robot3/build/auto_robot/CMakeFiles /home/selamicetin/Masaüstü/robot3/build/auto_robot//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/selamicetin/Masaüstü/robot/build/auto_robot/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/selamicetin/Masaüstü/robot3/build/auto_robot/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

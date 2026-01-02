@@ -149,6 +149,8 @@ controller_server:
       RotateToGoal.scale: 32.0
       RotateToGoal.slowing_factor: 5.0
       RotateToGoal.lookahead_time: -1.0
+      publish_velocity_updates: true
+      publish_cost_grid_pc: true
 
 controller_server_rclcpp_node:
   ros__parameters:
@@ -258,6 +260,7 @@ planner_server:
       tolerance: 0.2
       use_astar: false
       allow_unknown: true
+      visualize_potential: true
 
 planner_server_rclcpp_node:
   ros__parameters:
@@ -297,3 +300,34 @@ waypoint_follower:
       plugin: "nav2_waypoint_follower::WaitAtWaypoint"
       enabled: True
       waypoint_pause_duration: 100
+
+# Coverage Server Configuration
+coverage_server:
+  ros__parameters:
+    use_sim_time: True
+    robot_width: 0.5
+    operation_width: 0.4
+    headland_radius: 0.5
+    route_type: "boustrophedon"
+    optimization: "snake"
+    planner_frequency: 1.0
+    transform_tolerance: 0.1
+    planner_plugin: "nav2_navfn_planner/NavfnPlanner"
+    tolerance: 0.5
+    use_astar: false
+    allow_unknown: true
+    default_tolerance: 0.5
+    visualize_coverage_path: true
+    publish_coverage_path: true
+    path_resolution: 0.1
+    path_lookahead: 1.0
+    path_tolerance: 0.1
+    path_timeout: 10.0
+    path_smoothing: true
+    path_smooth_filter: 5
+    path_smooth_alpha: 0.75
+    # Visualization parameters
+    publish_frequency: 1.0
+    publish_marker_frequency: 1.0
+    visualize_potential: true
+    publish_potential: true

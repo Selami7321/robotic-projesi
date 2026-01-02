@@ -41,7 +41,8 @@ def generate_launch_description():
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]
-        )
+        ),
+        launch_arguments={'world': os.path.join(pkg_path, 'worlds', 'house.world')}.items()
     )
 
     # Run the spawner node from the gazebo_ros package
@@ -49,7 +50,13 @@ def generate_launch_description():
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=['-topic', 'robot_description',
-                   '-entity', 'home_cleaner_bot'],
+                   '-entity', 'home_cleaner_bot',
+                   '-x', '0.0',
+                   '-y', '0.0',
+                   '-z', '0.2',
+                   '-R', '0.0',
+                   '-P', '0.0',
+                   '-Y', '0.0'],
         output='screen')
 
     # Start SLAM Toolbox
@@ -70,6 +77,19 @@ def generate_launch_description():
             'params_file': os.path.join(pkg_path, 'config', 'nav2_params.yaml'),
             'use_sim_time': 'true'
         }.items()
+    )
+
+    # Start Lifecycle Manager for Nav2
+    start_lifecycle_manager = Node(
+        package='nav2_lifecycle_manager',
+        executable='lifecycle_manager',
+        name='lifecycle_manager',
+        output='screen',
+        parameters=[{'use_sim_time': True},
+                    {'autostart': True},
+                    {'node_names': ['map_server', 'planner_server', 'controller_server', 
+                                   'recoveries_server', 'bt_navigator', 'waypoint_follower',
+                                   'coverage_server']}]
     )
 
     # Start RViz
@@ -101,6 +121,7 @@ def generate_launch_description():
     ld.add_action(gazebo)
     ld.add_action(spawn_entity)
     ld.add_action(start_slam_toolbox)
+    ld.add_action(start_lifecycle_manager)  # Add lifecycle manager before nav2
     ld.add_action(start_nav2)
     ld.add_action(start_rviz)
     ld.add_action(start_behavior_manager)

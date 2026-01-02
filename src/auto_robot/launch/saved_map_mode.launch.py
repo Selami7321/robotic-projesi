@@ -3,11 +3,10 @@ import os
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, RegisterEventHandler
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-from launch.event_handlers import OnProcessExit
 
 
 def generate_launch_description():
@@ -41,8 +40,7 @@ def generate_launch_description():
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]
-        ),
-        launch_arguments={'world': os.path.join(pkg_path, 'worlds', 'house.world')}.items()
+        )
     )
 
     # Run the spawner node from the gazebo_ros package
@@ -50,25 +48,19 @@ def generate_launch_description():
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=['-topic', 'robot_description',
-                   '-entity', 'home_cleaner_bot',
-                   '-x', '0.0',
-                   '-y', '0.0',
-                   '-z', '0.2',
-                   '-R', '0.0',
-                   '-P', '0.0',
-                   '-Y', '0.0'],
+                   '-entity', 'home_cleaner_bot'],
         output='screen')
 
-    # Start SLAM Toolbox
-    start_slam_toolbox = Node(
-        package='slam_toolbox',
-        executable='async_slam_toolbox_node',
-        name='slam_toolbox',
+    # Start Map Server with pre-saved map
+    start_map_server = Node(
+        package='nav2_map_server',
+        executable='map_server',
+        name='map_server',
         output='screen',
-        parameters=[os.path.join(pkg_path, 'config', 'mapper_params_online_async.yaml')],
+        parameters=[os.path.join(pkg_path, 'config', 'nav2_params.yaml')]
     )
 
-    # Start Nav2
+    # Start Nav2 (with localization instead of SLAM)
     start_nav2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('nav2_bringup'), 'launch', 'navigation_launch.py')
@@ -76,6 +68,18 @@ def generate_launch_description():
         launch_arguments={
             'params_file': os.path.join(pkg_path, 'config', 'nav2_params.yaml'),
             'use_sim_time': 'true'
+        }.items()
+    )
+
+    # Start AMCL for localization
+    start_amcl = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('nav2_bringup'), 'launch', 'localization_launch.py')
+        ),
+        launch_arguments={
+            'params_file': os.path.join(pkg_path, 'config', 'nav2_params.yaml'),
+            'use_sim_time': 'true',
+            'map': '/home/selamicetin/Masaüstü/robot3/maps/home_cleaner_map.yaml'  # Path to saved map
         }.items()
     )
 
@@ -120,8 +124,9 @@ def generate_launch_description():
     ld.add_action(rsp)
     ld.add_action(gazebo)
     ld.add_action(spawn_entity)
-    ld.add_action(start_slam_toolbox)
-    ld.add_action(start_lifecycle_manager)  # Add lifecycle manager before nav2
+    ld.add_action(start_map_server)
+    ld.add_action(start_amcl)  # Use AMCL for localization with saved map
+    ld.add_action(start_lifecycle_manager)
     ld.add_action(start_nav2)
     ld.add_action(start_rviz)
     ld.add_action(start_behavior_manager)

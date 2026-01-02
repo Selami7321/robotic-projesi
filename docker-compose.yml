@@ -2,20 +2,23 @@ version: '3.8'
 
 services:
   homecleanerbot:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: homecleanerbot
+    privileged: true
     environment:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/tmp/.docker.xauth
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ./maps:/home/ros2_ws/maps
-    privileged: true
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - ./maps:/home/selamicetin/Masaüstü/robot3/maps
     network_mode: host
     stdin_open: true
     tty: true
     command: >
-      bash -c "
-        source /opt/ros/humble/setup.bash &&
-        source /home/ros2_ws/install/setup.bash &&
-        ros2 launch auto_robot home_cleaner.launch.py"
+      bash -c "source /opt/ros/humble/setup.bash && 
+               source /home/selamicetin/Masaüstü/robot3/install/setup.bash && 
+               ros2 launch auto_robot home_cleaner.launch.py"

@@ -20,6 +20,10 @@ install(DIRECTORY launch config description worlds
 install(PROGRAMS
         scripts/robot_behavior_manager.py
         scripts/rviz_cleaning_controls.py
+        scripts/home_cleaner_control.py
+        scripts/coverage_planner.py
+        scripts/simple_auto_nav.py
+        scripts/battery_simulator.py
         DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

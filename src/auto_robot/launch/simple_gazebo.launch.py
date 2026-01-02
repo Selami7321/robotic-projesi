@@ -18,17 +18,23 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
-    # Include the Gazebo launch file with empty world
+    # Include the Gazebo launch file with house world
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
-                launch_arguments={'world': os.path.join(get_package_share_directory(package_name), 'worlds', 'empty.world')}.items()
+                launch_arguments={'world': os.path.join(get_package_share_directory(package_name), 'worlds', 'house.world')}.items()
              )
 
     # Run the spawner node from the gazebo_ros package
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
-                                   '-entity', 'auto_car'],
+                                   '-entity', 'auto_car',
+                                   '-x', '0.0',
+                                   '-y', '0.0',
+                                   '-z', '0.2',
+                                   '-R', '0.0',
+                                   '-P', '0.0',
+                                   '-Y', '0.0'],
                         output='screen')
 
     # Launch them all!

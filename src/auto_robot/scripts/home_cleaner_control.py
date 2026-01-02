@@ -10,10 +10,11 @@ from std_srvs.srv import Empty
 from nav2_msgs.srv import LoadMap, SaveMap
 import yaml
 import math
+import time
 
-class HomeCleanerBot(Node):
+class HomeCleanerController(Node):
     def __init__(self):
-        super().__init__('home_cleaner_bot')
+        super().__init__('home_cleaner_controller')
         
         # Action clients
         self.navigate_to_pose_client = ActionClient(self, NavigateToPose, 'navigate_to_pose')
@@ -44,7 +45,7 @@ class HomeCleanerBot(Node):
         self.map_saved = False
         self.using_saved_map = False
         
-        self.get_logger().info('HomeCleanerBot initialized')
+        self.get_logger().info('HomeCleaner Controller initialized - Ready for RViz commands')
         
     def mode_callback(self, msg):
         """Callback for mode change commands"""
@@ -74,10 +75,6 @@ class HomeCleanerBot(Node):
         """Start SLAM mapping mode"""
         self.current_mode = 'mapping'
         self.get_logger().info('Starting mapping mode')
-        
-        # In a real implementation, this would start SLAM mapping
-        # For now, we'll simulate the process by generating waypoints for mapping
-        self.mapping_completed = False
         
         # Generate exploration waypoints for mapping
         exploration_waypoints = self.generate_exploration_waypoints()
@@ -345,7 +342,7 @@ class HomeCleanerBot(Node):
             
         # Create save map request
         request = SaveMap.Request()
-        request.map_url = "/home/selamicetin/Masaüstü/robot/maps/home_cleaner_map"
+        request.map_url = "/home/selamicetin/Masaüstü/robot3/maps/home_cleaner_map"
         request.image_format = "png"
         request.map_mode = "trinary"
         request.free_thresh = 0.25
@@ -371,14 +368,14 @@ class HomeCleanerBot(Node):
 def main(args=None):
     rclpy.init(args=args)
     
-    robot = HomeCleanerBot()
+    controller = HomeCleanerController()
     
     try:
-        rclpy.spin(robot)
+        rclpy.spin(controller)
     except KeyboardInterrupt:
         pass
     finally:
-        robot.destroy_node()
+        controller.destroy_node()
         rclpy.shutdown()
 
 if __name__ == '__main__':

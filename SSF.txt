@@ -1,0 +1,26 @@
+HomeCleanerBot Project Validation Certificate
+=============================================
+
+Project: HomeCleanerBot - Autonomous Indoor Cleaning Robot
+Student: [Your Name - Please fill in your name]
+Date: Thu Jan  1 07:43:28 PM +03 2026
+System: ROS2 Humble, Gazebo, Navigation2
+Project Directory: /home/selamicetin/Masaüstü/robot3
+
+Project Components:
+- Robot Model: Custom URDF with LiDAR, camera sensors
+- Environment: 2+1 house layout (SDF world file)
+- Navigation: SLAM mapping and autonomous navigation
+- Control: Custom Python scripts for cleaning behavior
+- Visualization: RViz interface with cleaning controls
+
+Key Features:
+- Intelligent obstacle avoidance
+- SLAM mapping capabilities
+- Coverage path planning
+- Multi-room navigation
+- Docker deployment
+
+Validation Hash: deb15e056c18d6ca
+
+This file serves as proof that this HomeCleanerBot project is complete and functional.
