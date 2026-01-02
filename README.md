@@ -225,7 +225,8 @@ ros2 topic echo /topic_name std_msgs/msg/String
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Authors
-- Selami E. - Project Developer
+- Selami Çetin - Project Developer
+- Uğur Baki Arslan - Project Developer
 
 ## Acknowledgments
 - ROS2 and Navigation2 communities
